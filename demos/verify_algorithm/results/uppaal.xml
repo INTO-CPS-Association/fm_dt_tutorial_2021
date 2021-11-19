@@ -243,33 +243,33 @@
         //Encoding of the scenario
         //Each FMU should have a different ID \in [0, nFMU-1]
         
-        const int Supervisor_s := 2;
-        
         const int Room_r := 0;
         
-        const int Controller_c := 4;
+        const int Plant_p := 1;
         
         const int KalmanFilter_k := 3;
         
-        const int Plant_p := 1;
+        const int Controller_c := 4;
+        
+        const int Supervisor_s := 2;
         
 
         //Number of inputs and outputs of each FMU
         
-        const int Controller_c_input := 5;
-        const int Controller_c_output := 1;
-        
-        const int Room_r_input := 0;
-        const int Room_r_output := 1;
+        const int KalmanFilter_k_input := 3;
+        const int KalmanFilter_k_output := 2;
         
         const int Plant_p_input := 2;
         const int Plant_p_output := 1;
         
-        const int KalmanFilter_k_input := 3;
-        const int KalmanFilter_k_output := 2;
+        const int Controller_c_input := 5;
+        const int Controller_c_output := 1;
         
         const int Supervisor_s_input := 5;
         const int Supervisor_s_output := 4;
+        
+        const int Room_r_input := 0;
+        const int Room_r_output := 1;
         
 
         //Definition of inputs and outputs of each FMU
@@ -285,32 +285,6 @@
         const int Plant_p_T_bair_out := 0;
         
         const int Plant_p_inputTypes[nConfig][MaxNInputs] := { {delayed,delayed,noPort,noPort,noPort} };
-        
-        // Controller_c inputs - 5
-        
-        const int Controller_c_T_bair_in := 2;
-        
-        const int Controller_c_H_in := 3;
-        
-        const int Controller_c_UL_in := 1;
-        
-        const int Controller_c_LL_in := 0;
-        
-        const int Controller_c_C_in := 4;
-        
-        // Controller_c outputs - 1
-        
-        const int Controller_c_heater_on_out := 0;
-        
-        const int Controller_c_inputTypes[nConfig][MaxNInputs] := { {delayed,delayed,delayed,delayed,delayed} };
-        
-        // Room_r inputs - 0
-        
-        // Room_r outputs - 1
-        
-        const int Room_r_T_room_out := 0;
-        
-        const int Room_r_inputTypes[nConfig][MaxNInputs] := { {noPort,noPort,noPort,noPort,noPort} };
         
         // KalmanFilter_k inputs - 3
         
@@ -328,17 +302,43 @@
         
         const int KalmanFilter_k_inputTypes[nConfig][MaxNInputs] := { {reactive,reactive,reactive,noPort,noPort} };
         
+        // Room_r inputs - 0
+        
+        // Room_r outputs - 1
+        
+        const int Room_r_T_room_out := 0;
+        
+        const int Room_r_inputTypes[nConfig][MaxNInputs] := { {noPort,noPort,noPort,noPort,noPort} };
+        
+        // Controller_c inputs - 5
+        
+        const int Controller_c_T_bair_in := 2;
+        
+        const int Controller_c_H_in := 3;
+        
+        const int Controller_c_UL_in := 1;
+        
+        const int Controller_c_C_in := 4;
+        
+        const int Controller_c_LL_in := 0;
+        
+        // Controller_c outputs - 1
+        
+        const int Controller_c_heater_on_out := 0;
+        
+        const int Controller_c_inputTypes[nConfig][MaxNInputs] := { {delayed,delayed,delayed,delayed,delayed} };
+        
         // Supervisor_s inputs - 5
         
-        const int Supervisor_s_heater_on_in := 4;
+        const int Supervisor_s_T_bair_in := 2;
         
-        const int Supervisor_s_T_heater_in := 0;
+        const int Supervisor_s_heater_on_in := 4;
         
         const int Supervisor_s_T_bair_plant_in := 3;
         
         const int Supervisor_s_T_room_in := 1;
         
-        const int Supervisor_s_T_bair_in := 2;
+        const int Supervisor_s_T_heater_in := 0;
         
         // Supervisor_s outputs - 4
         
@@ -1804,15 +1804,15 @@
 
         //The arguments to FMU is Id, numbers of outputs, number of inputs, definition of inputTypes
         
-        Room_r_fmu = FMU(Room_r, Room_r_output, Room_r_input, Room_r_inputTypes) ;
+        Plant_p_fmu = FMU(Plant_p, Plant_p_output, Plant_p_input, Plant_p_inputTypes) ;
         
         Supervisor_s_fmu = FMU(Supervisor_s, Supervisor_s_output, Supervisor_s_input, Supervisor_s_inputTypes) ;
         
         KalmanFilter_k_fmu = FMU(KalmanFilter_k, KalmanFilter_k_output, KalmanFilter_k_input, KalmanFilter_k_inputTypes) ;
         
-        Plant_p_fmu = FMU(Plant_p, Plant_p_output, Plant_p_input, Plant_p_inputTypes) ;
-        
         Controller_c_fmu = FMU(Controller_c, Controller_c_output, Controller_c_input, Controller_c_inputTypes) ;
+        
+        Room_r_fmu = FMU(Room_r, Room_r_output, Room_r_input, Room_r_inputTypes) ;
         
 
         // List one or more processes to be composed into a system.

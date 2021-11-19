@@ -56,6 +56,12 @@ __NOTE: This test requires the fmus Controller, KalmanFilter, Plant, Room, Super
 Same as [Demo execute_algorithm](#demo-execute_algorithm), except it also loads the Incubator3D FMU.
 This demo only works on windows.
 
+### Demo execute_algorithm_faultinjection
+file `faultEvents.xml` changed to `FaultEvents.xml`.  
+
+### Demo execute_algorithm_rabbitmq_3D
+This demo only works on windows.  
+
 ### Demo generate_algorithm_from_scenario
 
 Shows the ability to generate an algorithm from a scenario.
