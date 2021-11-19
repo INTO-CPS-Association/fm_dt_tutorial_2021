@@ -1,0 +1,13 @@
+{
+    "fmus": {
+        "{Controller}": "GENERATED",
+        "{KalmanFilter}": "GENERATED",
+        "{Plant}": "GENERATED",
+        "{Room}": "GENERATED",
+        "{Supervisor}": "GENERATED"
+    },
+    "connections": {},
+    "parameters": {
+        "{Plant}.p.delay": -1.0
+    }
+}
