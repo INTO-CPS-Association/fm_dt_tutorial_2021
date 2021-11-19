@@ -32,22 +32,21 @@ python run_tests.py
 
 Tests should be executed from the [demos](./demos) folder.
 
-Each subfolder includes both `test.py` which can be executed to run the concrete test and either a `scenario.conf` representing the co-simulation scenario.
+Each subfolder includes both `test.py` which can be executed to run the concrete test and a `scenario.conf` representing the co-simulation scenario.
 
 During test execution relevant test information is displayed in the console.
 
 ### Demo execute_algorithm
 
-Shows the ability to execute an algorithm generated from a scenario.
+Shows the ability to execute an algorithm generated from a [scenario](./demos/execute_algorithm/scenario.conf)
 
-First the test generates a mastermodel (representing the scenario and algorithm) by calling the Maestro web API with the scenario file. 
-The test then merges the resulting mastermodel with the existing executableModel file which is then passed to Maestro to execute the algorithm.
+First the test generates a mastermodel (defining the scenario and algorithm) by calling the Maestro CLI with the scenario file and places the master model in the results folder. The test then passes the resulting master model, the [multi model](./demos/execute_algorithm/multiModel.json) and execution parameters in its call to the Maestro CLI to execute the algorithm.
 
-If successful, the zip file 'zip_result.zip' is generated in the folder with the execution artifacts.
+Any resulting execution artifacts are placed in a results folder, this includes a MaBL spec, output values and fmu logs. Lastly the output is plotted and a graph is displayed.
 
-The parameter 'executionParameters' in executableModel.json can be configured as needed (e.g. step size).
-
-Likewise also the scenario.conf file can be changed as needed.
+The file [executionParameters](./demos/execute_algorithm/executionParameters.json) can be configured as needed (e.g. step size and start and stop time for the execution).
+The file [multiModel](./demos/execute_algorithm/multiModel.json) should not be changed as the test ensures that the correct FMU paths are inserted into the file as needed.
+The file [scenario](./demos/execute_algorithm/scenario.conf) defines the incubator scenario with a name. The scenario, but no initialization or cosim-step instructions are present as these are part of the algorithm which is being generated as part of the test.
 
 __NOTE: This test requires the fmus Controller, KalmanFilter, Plant, Room, Supervisor (as folders) to be located in the folder fmus with the exact names__.
 
@@ -58,16 +57,29 @@ This demo only works on windows.
 
 ### Demo generate_algorithm_from_scenario
 
-Shows the ability to generate an algorithm from a scenario.
+Shows the ability to generate an algorithm from a [scenario](./demos/generate_algorithm_from_scenario/scenario.conf).
 
-If successful the conf file 'result_masterModel.conf' is generated in the folder containing both the scenario and algorithm.
+The test calls the Maestro CLI with the scenario file.
+
+The resulting master model which contains both the scenario and algorithm is placed in a results folder.
 
 The scenario.conf file can be changed as needed.
+
 
 ### Demo verify_algorithm
 
 Shows the ability to verify an algorithm.
 
+The test calls the Maestro CLI with the [master model file](./demos/verify_algorithm/masterModel.conf).
+
+This prints a message in the shell indicating if the master model is sucessfully verified or not.
+
+In this test there is introduced an error in the algorithm in the mater model file, so it should not verify successfully.
+
 ### Test visualize_traces
 
 Shows the ability to visualize possible traces generated from verification.
+
+The test calls the Maestro CLI with the[master model file](./demos/visualize_traces/masterModel.conf).
+
+As there is introduced an error in the algorithm in the mater model file, this call returns a video file that visualizes the traces.
