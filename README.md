@@ -70,13 +70,13 @@ The scenario.conf file can be changed as needed.
 
 Shows the ability to verify an algorithm.
 
-The test calls the Maestro CLI with the [master model file](./demos/verify_algorithm/masterModel.conf).
+The demo calls the Maestro CLI with the [master model file](./demos/verify_algorithm/masterModel.conf).
 
 This prints a message in the shell indicating if the master model is sucessfully verified or not.
 
 In this test there is introduced an error in the algorithm in the mater model file, so it should not verify successfully.
 
-### Test visualize_traces
+### Demo visualize_traces
 
 Shows the ability to visualize possible traces generated from verification.
 
