@@ -34,8 +34,6 @@ def executeAlgorithm(batch_mode, maestroJarPath):
     cliGenerateAlgorithmFromScenario(maestroJarPath)
 
     utils.printSection("EXECUTING ALGORITHM")
-    print("THIS DIR")
-    print(this_dir)
 
     with TemporaryDirectory() as temp_dir:
         multiModel = utils.getCorrectedMultiModelAsPath(temp_dir, multiModelPath, resultsPath)
