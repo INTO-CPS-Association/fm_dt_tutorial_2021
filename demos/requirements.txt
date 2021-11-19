@@ -1,0 +1,15 @@
+certifi
+charset-normalizer
+grpcio
+idna
+protobuf
+requests
+six
+urllib3
+pandas
+matplotlib
+scipy
+control
+filterpy
+sympy
+pika
