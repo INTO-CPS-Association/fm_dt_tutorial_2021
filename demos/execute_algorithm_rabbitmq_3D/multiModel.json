@@ -1,0 +1,10 @@
+{
+    "fmus": {
+        "{RmqFmu}": "GENERATED",
+        "{KalmanFilter}": "GENERATED",
+        "{Incubator3D}": "GENERATED",
+        "{Supervisor}": "GENERATED"
+    },
+    "connections": {},
+    "parameters": {}
+}
