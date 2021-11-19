@@ -80,6 +80,6 @@ In this test there is introduced an error in the algorithm in the mater model fi
 
 Shows the ability to visualize possible traces generated from verification.
 
-The test calls the Maestro CLI with the[master model file](./demos/visualize_traces/masterModel.conf).
+The test calls the Maestro CLI with the [master model file](./demos/visualize_traces/masterModel.conf).
 
 As there is introduced an error in the algorithm in the mater model file, this call returns a video file that visualizes the traces.
