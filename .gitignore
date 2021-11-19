@@ -5,6 +5,7 @@ __pycache__/
 /demos/execute_algorithm_faultinjection/results
 /demos/execute_algorithm_rabbitmq_3D/results
 /demos/generate_algorithm_from_scenario/results
+/demos/verify_algorithm/results
 *.log
 /demos/venv/
 .DS_Store
