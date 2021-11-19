@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<fmiModelDescription fmiVersion="2.0" modelName="Supervisor" guid="77236337-210e-4e9c-8f2c-c1a0677db21b" generationDateAndTime="2020-10-23T19:51:25Z" variableNamingConvention="flat" generationTool="unifmu">
+  <CoSimulation modelIdentifier="Supervisor" needsExecutionTool="true" canNotUseMemoryManagementFunctions="false" canHandleVariableCommunicationStepSize="true" />
+  <LogCategories>
+    <Category name="logStatusWarning" />
+    <Category name="logStatusDiscard" />
+    <Category name="logStatusError" />
+    <Category name="logStatusFatal" />
+    <Category name="logStatusPending" />
+    <Category name="logAll" />
+  </LogCategories>
+  <ModelVariables>
+    <!--Index of variable = "1"-->
+    <ScalarVariable name="LL_out" valueReference="0" variability="discrete" causality="output" initial="exact">
+      <Real start="15.0"/>
+    </ScalarVariable>
+    <!--Index of variable = "2"-->
+    <ScalarVariable name="UL_out" valueReference="1" variability="discrete" causality="output" initial="exact">
+      <Real start="30.0"/>
+    </ScalarVariable>
+    <!--Index of variable = "3"-->
+    <ScalarVariable name="H_out" valueReference="2" variability="discrete" causality="output" initial="calculated">
+      <Real/>
+    </ScalarVariable>
+    <!--Index of variable = "4"-->
+    <ScalarVariable name="C_out" valueReference="3" variability="discrete" causality="output" initial="calculated">
+      <Real/>
+    </ScalarVariable>
+    <!--Index of variable = "5"-->
+    <ScalarVariable name="heater_on_in" valueReference="4" variability="discrete" causality="input">
+      <Boolean start="false" />
+    </ScalarVariable>
+    <!--Index of variable = "6"-->
+    <ScalarVariable name="T_heater_in" valueReference="5" variability="continuous" causality="input" >
+      <Real start="0.0"/>
+    </ScalarVariable>
+    <!--Index of variable = "7"-->
+    <ScalarVariable name="T_bair_in" valueReference="6" variability="continuous" causality="input">
+      <Real start="0.0"/>
+    </ScalarVariable>
+    <!--Index of variable = "8"-->
+    <ScalarVariable name="T_room_in" valueReference="7" variability="continuous" causality="input">
+      <Real start="0.0"/>
+    </ScalarVariable>
+    <!--Index of variable = "9"-->
+    <ScalarVariable name="T_bair_plant_in" valueReference="7" variability="continuous" causality="input">
+      <Real start="0.0"/>
+    </ScalarVariable>
+  </ModelVariables>
+  <ModelStructure>
+    <Outputs>
+      <Unknown index="1" dependencies="5 6 7 8 9" />
+      <Unknown index="2" dependencies="5 6 7 8 9" />
+      <Unknown index="3" dependencies="5 6 7 8 9" />
+      <Unknown index="4" dependencies="5 6 7 8 9" />
+    </Outputs>
+    <InitialUnknowns>
+      <Unknown index="3" />
+      <Unknown index="4" />
+    </InitialUnknowns>
+  </ModelStructure>
+</fmiModelDescription>

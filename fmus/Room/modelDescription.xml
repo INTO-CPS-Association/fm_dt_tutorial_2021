@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<fmiModelDescription fmiVersion="2.0" modelName="Room" guid="77236337-210e-4e9c-8f2c-c1a0677db21b" generationDateAndTime="2020-10-23T19:51:25Z" variableNamingConvention="flat" generationTool="unifmu">
+  <CoSimulation modelIdentifier="Room" needsExecutionTool="true" canNotUseMemoryManagementFunctions="false" canHandleVariableCommunicationStepSize="true" />
+  <LogCategories>
+    <Category name="logStatusWarning" />
+    <Category name="logStatusDiscard" />
+    <Category name="logStatusError" />
+    <Category name="logStatusFatal" />
+    <Category name="logStatusPending" />
+    <Category name="logAll" />
+  </LogCategories>
+  <ModelVariables>
+    <!--Index of variable = "1"-->
+    <ScalarVariable name="T_room_out" valueReference="0" variability="continuous" causality="output" initial="exact">
+      <Real start="20.0"/>
+    </ScalarVariable>
+
+  </ModelVariables>
+  <ModelStructure>
+    <Outputs>
+      <Unknown index="1" dependencies="" />
+    </Outputs>
+  </ModelStructure>
+</fmiModelDescription>
