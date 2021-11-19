@@ -12,6 +12,7 @@ import pandas as pd
 new_data = False
 data = {}
 lock = threading.Lock()
+host = "localhost"
 
 def callback(ch, method, properties, body):
     global new_data, data, lock
@@ -27,7 +28,7 @@ def publishToRmqfmu():
 
     credentials = pika.PlainCredentials('incubator', 'incubator')
     connection_rmqfmu = pika.BlockingConnection(
-        pika.ConnectionParameters(host='localhost', credentials=credentials))
+        pika.ConnectionParameters(host=host, credentials=credentials))
     channel_rmqfmu = connection_rmqfmu.channel()
 
     channel_rmqfmu.exchange_declare(exchange='Incubator_AMQP', exchange_type='topic')
@@ -70,7 +71,7 @@ def publishToRmqfmu():
 
 def consumeFromIncubator():
     credentials = pika.PlainCredentials('incubator', 'incubator')
-    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost', credentials=credentials))
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host, credentials=credentials))
     channel = connection.channel()
 
     print("Declaring exchange")

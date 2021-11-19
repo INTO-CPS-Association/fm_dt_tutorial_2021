@@ -27,7 +27,7 @@ public class BackendDummy : MonoBehaviour
         if (i == 200)
         {
             var references = new List<uint>{0,1};
-            var values = new List<double>{60f, 30f};
+            var values = new List<double>{60.546548f, 30.213584731f};
             model.Fmi2SetReal(references, values);
             var breferences = new List<uint>{2};
             var bvalues = new List<bool>{true};
