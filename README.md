@@ -56,9 +56,11 @@ Same as [Demo execute_algorithm](#demo-execute_algorithm), except it also loads 
 This demo only works on windows.
 
 ### Demo execute_algorithm_faultinjection
-file `faultEvents.xml` changed to `FaultEvents.xml`.  
+
+Demonstration of fault injection.
 
 ### Demo execute_algorithm_rabbitmq_3D
+
 This demo only works on windows.  
 
 ### Demo generate_algorithm_from_scenario
@@ -78,7 +80,7 @@ Shows the ability to verify an algorithm.
 
 The demo calls the Maestro CLI with the [master model file](./demos/verify_algorithm/masterModel.conf).
 
-This prints a message in the shell indicating if the master model is sucessfully verified or not.
+This prints a message in the shell indicating if the master model is successfully verified or not.
 
 In this test there is introduced an error in the algorithm in the mater model file, so it should not verify successfully.
 
