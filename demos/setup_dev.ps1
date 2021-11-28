@@ -21,6 +21,22 @@ if (-not (Test-Path -Path $venv)) {
 Write-Output "Activate virtual env"
 & "$venv\Scripts\Activate.ps1"
 
+Write-Output "Upgrade pip"
+python -m pip install --upgrade pip
+
+if (-not $LASTEXITCODE -eq 0){
+    Write-Error "Pip upgrade failed."
+    Exit $LASTEXITCODE
+}
+
+Write-Output "Use wheel"
+pip install wheel
+
+if (-not $LASTEXITCODE -eq 0){
+    Write-Error "Install wheel failed."
+    Exit $LASTEXITCODE
+}
+
 Write-Output "Install python packages"
 pip install -r requirements.txt
 
