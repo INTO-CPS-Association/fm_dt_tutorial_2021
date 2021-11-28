@@ -29,6 +29,9 @@ def cliGenerateAlgorithmFromScenario(maestroJarPath):
     utils.testCliCommandWithFunc(cmd, func)
 
 def executeAlgorithm(batch_mode, maestroJarPath):
+    utils.removeIfExists(resultsPath)
+    os.mkdir(resultsPath)
+
     #bash_command = "java -jar " + coePath + " import sg1  --interpret " + fiMablPath + " " + multiModel + " " + coeJsonPath + " " + resultsPath
 
     cliGenerateAlgorithmFromScenario(maestroJarPath)
@@ -58,6 +61,4 @@ def executeAlgorithm(batch_mode, maestroJarPath):
         plt.show()
 
 if __name__ == '__main__':
-    utils.removeIfExists(resultsPath)
-    os.mkdir(resultsPath)
     executeAlgorithm(False, utils.getMaestroJarPath())

@@ -16,7 +16,6 @@ executionParametersPath = os.path.join(resourcesPath, "executionParameters.json"
 def executeAlgorithm(batch_mode, maestroJarPath):
     utils.removeIfExists(resultsPath)
     os.mkdir(resultsPath)
-
     utils.printSection("GENERATING ALGORITHM")
 
     scenarioPath = os.path.join(resourcesPath, "scenario.conf")
