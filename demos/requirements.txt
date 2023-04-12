@@ -2,7 +2,7 @@ certifi
 charset-normalizer
 grpcio
 idna
-protobuf
+protobuf<=3.20
 requests
 six
 urllib3
